@@ -1,0 +1,22 @@
+{
+	"manifest_version" : 2,
+
+	"name" : "RecordTwitchChat",
+	"description" : "Records chat in Twitch.tv to log files.",
+	"version" : "0.1",
+
+	"permissions" : [
+		"tabs",
+		"unlimitedStorage"
+	],
+	"background" : {
+		"scripts" : ["jquery-2.2.3.min.js", "constants.js", "main.js"]
+	},
+	"content_scripts" : [{
+		"matches" : ["https://www.twitch.tv/*", "http://www.twitch.tv/*"],
+		"js" : ["jquery-2.2.3.min.js", "mutation-summary.js", "moment.min.js", "constants.js", "chat-capture.js"]
+	}],
+	"page_action" : {
+		"default_title" : "Load chat logs"
+	}
+}
